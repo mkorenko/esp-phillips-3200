@@ -1,3 +1,4 @@
+#include <string>
 #include "Arduino.h"
 #include "esp-phillips-3200.h"
 

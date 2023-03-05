@@ -7,6 +7,7 @@
 #include <HardwareSerial.h>
 #endif
 
+#include <string>
 #include "Arduino.h"
 
 #if defined(ESP8266)
