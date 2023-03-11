@@ -3,7 +3,8 @@
 Based on:\
 https://github.com/chris7topher/SmartPhilips2200 \
 https://github.com/micki88/Philips-ep3200-testing \
-https://github.com/walthowd/Philips-ep3200-ha
+https://github.com/walthowd/Philips-ep3200-ha \
+https://github.com/veonua/SmartPhilips
 
 A video for explanation can be found here:
 https://youtu.be/jhzEMkL5Xek
@@ -53,6 +54,7 @@ void on_machine_state_changed() {
   // "off"
   // "heating" - the machine is heating / initializing
   // "ready" - ready, nothing is selected
+  // "ready_aqua_clean" - ready + aqua clean warning
   // "selected" - brew is selected
   // "brewing" - brewing
   // "error_no_water" - no water / water tank is ejected

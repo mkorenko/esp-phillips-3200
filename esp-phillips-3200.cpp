@@ -302,6 +302,8 @@ std::string Phillips3200::machine_states_get_machine_status_from_buf(
   }
 
   if (buffer[14] != 0x00 &&
+      // 2 - 13 == 0x00
+      // checking 4 & 6 seems to be enough
       buffer[4] == 0x00 &&
       buffer[6] == 0x00) {
     return "error_no_water";
@@ -328,11 +330,13 @@ std::string Phillips3200::machine_states_get_machine_status_from_buf(
   if (buffer[15] == 0x00 // no error
         && buffer[14] == 0x00 // water tank ok
         && buffer[13] == 0x00 // calcncclean
-        // && buffer[12] == 0x00 // aquaclean
         && buffer[3] == 0x07
         && buffer[4] == 0x07
-        && buffer[5] == 0x07
-        && buffer[12] == 0x07) {
+        && buffer[5] == 0x07) {
+    // 12 == 0x07 - aqua_clean OK
+    if (buffer[12] == 0x00) {
+      return "ready_aqua_clean";
+    }
     return "ready";
   }
 
